@@ -1,7 +1,7 @@
-'use client';
-
+'use client'
 import { useState, ChangeEvent, FormEvent, useEffect } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useAppDispatch } from "../../store/hooks";
 import { loginSuccess, loginError } from "../../features/managerSlice";
 import ManagerLoginBG from "../../../public/Images/managerBG.jpg";
@@ -10,14 +10,10 @@ import { FormData, ApiResponse } from "@/types/manager/types";
 export default function ManagerLogin() {
   const [formData, setFormData] = useState<FormData>({ email: "", password: "" });
   const [error, setError] = useState<string | null>(null);
-  const [isClient, setIsClient] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
+  const router = useRouter();
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -40,43 +36,39 @@ export default function ManagerLogin() {
       const response = await fetch("http://localhost:5000/api/auth/login", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/json", // Content type for JSON payload
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(formData), // Send the form data as a JSON string
+        credentials: 'include', // Ensure that cookies (including the JWT token) are included with the request
       });
+      
 
       const data: ApiResponse = await response.json();
 
-      if (response.ok && data.success && data.data?.token && data.data?.manager) {
-        localStorage.setItem("token", data.data.token);
-
+      if (response.ok && data.success && data.managerData) {
         dispatch(
           loginSuccess({
-            id: data.data.manager.id,
-            name: data.data.manager.name,
-            email: data.data.manager.email,
-            address: data.data.manager.address,
+            id: data.managerData.id,
+            firstname: data.managerData.firstname,
+            email: data.managerData.email,
+            role: data.managerData.role,
           })
         );
-
         setError(null);
-        window.location.href = '/manager/dashboard';
+        router.push('/manager/dashboard');
+        
       } else {
         setError(data.message || "Login failed. Please try again.");
         dispatch(loginError());
       }
     } catch (error) {
       setError("An error occurred. Please try again later.");
-      console.error("Error during login:", error);
+      console.log("Error during login:", error);
       dispatch(loginError());
     } finally {
       setIsLoading(false);
     }
   };
-
-  if (!isClient) {
-    return null;
-  }
 
   return (
     <div className="flex h-screen">
@@ -92,10 +84,10 @@ export default function ManagerLogin() {
 
       <div className="w-full lg:w-2/5 flex items-center justify-center bg-gray-100 p-8">
         <div className="w-full max-w-md">
-          <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">
+          <h2 className="text-2xl font-bold mb-6 text-center text-black">
             <span className="text-blue-500 font-semibold text-4xl">Welcome,</span> Manager
           </h2>
-          <p className="text-center text-sm text-gray-700 mb-8">
+          <p className="text-center text-sm text-black mb-8">
             Log in to access your dashboard and manage your team effectively.
           </p>
 

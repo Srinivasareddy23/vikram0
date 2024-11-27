@@ -1,29 +1,41 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { InitialState } from '@/types/manager/types';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-const initialState: InitialState = {
+interface ManagerState {
+  id: string;
+  firstname: string;
+  email: string;
+  role: string;
+}
+
+const initialState: ManagerState = {
   id: "",
-  name: "",
+  firstname: "",
   email: "",
-  address: ""
+  role: "",
 };
 
-export const managerSlice = createSlice({
-  name: 'manager', 
+const managerSlice = createSlice({
+  name: "manager",
   initialState,
   reducers: {
-    loginSuccess(state, action: PayloadAction<InitialState>) {
+    loginSuccess(state, action: PayloadAction<ManagerState>) {
       state.id = action.payload.id;
-      state.name = action.payload.name;
+      state.firstname = action.payload.firstname;
       state.email = action.payload.email;
-      state.address = action.payload.address;
+      state.role = action.payload.role;
     },
-    loginError(state) {
-      console.log("Login error occurred");
-    }
-  }
+    loginError() {
+      console.log("Login error occurred.");
+    },
+    logout(state) {
+      state.id = "";
+      state.firstname = "";
+      state.email = "";
+      state.role = "";
+    },
+  },
 });
 
-export const { loginSuccess, loginError } = managerSlice.actions;
+export const { loginSuccess, loginError, logout } = managerSlice.actions;
 
 export default managerSlice.reducer;

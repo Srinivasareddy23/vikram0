@@ -2,37 +2,35 @@ import jwt from 'jsonwebtoken';
 
 const loginController = (req, res) => {
   const manager = req.manager;
-  console.log("Manager Data:", manager);
 
   if (!manager) {
-    return res.status(404).json({
-      success: false,
-      message: "Manager not found",
-      data: null,
-    });
+    return res.status(404).json({ success: false, message: "Manager not found" });
   }
 
-  const payload = {
-    id: manager._id,
-    name: manager.name,
-    email: manager.email,
-    address: manager.address || "Unknown",
-  };
+  const token = jwt.sign(
+    { id: manager._id},
+    process.env.JWT_SECRET,
+    { expiresIn: '1h' }
+  );
 
-  const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: "1h" });
+  const managerData = {
+    id : manager._id,
+    firstname : manager.firstname,
+    email : manager.email,
+    role : manager.role
+  }
 
-  return res.status(200).json({
-    success: true,
-    message: "Login successful",
-    data: {
-      token, 
-      manager: {
-        id: manager._id,
-        name: manager.name,
-        email: manager.email,
-        address: manager.address || "Unknown",
-      },
-    },
+  res.cookie('token', token, {
+    httpOnly: true,
+    secure: false,
+    sameSite: 'Lax',
+    maxAge: 60 * 60 * 1000,
+  });
+
+  return res.status(200).json({ 
+    success: true, 
+    message: "Login successful", 
+    managerData
   });
 };
 

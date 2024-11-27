@@ -5,22 +5,19 @@ export interface FormData {
 
 export interface ApiResponse {
   success: boolean;
-  token?: string;
   message?: string;
-  data?: {
-    token?: string;
-    manager?: {
+  managerData?: {
       id: string;
-      name: string;
+      firstname: string;
       email: string;
-      address: string;
+      role: string;
     };
-  };
 };
+
 
 export interface InitialState {
   id: string; 
-  name: string;
+  firstname: string;
   email: string;
-  address: string;
+  role: string;
 }
