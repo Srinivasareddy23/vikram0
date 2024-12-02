@@ -1,4 +1,4 @@
-import bcrypt from 'bcrypt'; // To hash the password
+import bcrypt from 'bcrypt'; 
 import { Employee } from '../../schemas/employees/employeeRegister.js';
 
 export const registerEmployee = async (req, res) => {

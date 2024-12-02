@@ -41,8 +41,27 @@ const ManagerDashboard = () => {
     fetchWorks();
   }, []);
 
+  const getStatusStyles = (status: string) => {
+    switch (status.toLowerCase()) {
+      case "assigned":
+        return "text-violet-600 font-medium";
+      case "ongoing":
+        return "text-yellow-500 font-semibold";
+      case "completed":
+        return "text-green-600 font-bold";
+      default:
+        return "text-gray-500 font-normal";
+    }
+  };
+
+  const filteredWorks = works.filter((work) =>
+    ["srinivasareddy", "ravindrareddy", "gopiraju", "harish"].includes(
+      work.name.toLowerCase()
+    )
+  );
+
   return (
-    <div className="p-6">
+    <div className="p-6 font-sans">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {dashboardItems.map((item, index) => (
           <div
@@ -59,33 +78,44 @@ const ManagerDashboard = () => {
       </div>
 
       <div className="mt-8 overflow-x-auto">
-        <p className="text-xl text-center mb-4 text-black bg-blue-500 p-2">
+        <p className="text-xl text-center mb-4 text-white bg-blue-500 p-2 rounded-md shadow-md">
           Work List
         </p>
-        <table className="min-w-full table-auto border-collapse bg-white shadow-md">
+        <table className="min-w-full table-auto border-collapse bg-white shadow-md text-gray-800">
           <thead>
-            <tr className="bg-gray-200 text-black">
-              <th className="px-4 py-2 border-b text-left">Name</th>
-              <th className="px-4 py-2 border-b text-left">PDF</th>
-              <th className="px-4 py-2 border-b text-left">Start Date</th>
-              <th className="px-4 py-2 border-b text-left">Deadline</th>
-              <th className="px-4 py-2 border-b text-left">Message</th>
-              <th className="px-4 py-2 border-b text-left">Status</th>
+            <tr className="bg-gray-200">
+              <th className="px-4 py-2 border-b text-left font-semibold">Name</th>
+              <th className="px-4 py-2 border-b text-left font-semibold">PDF</th>
+              <th className="px-4 py-2 border-b text-left font-semibold">Start Date</th>
+              <th className="px-4 py-2 border-b text-left font-semibold">Deadline</th>
+              <th className="px-4 py-2 border-b text-left font-semibold">Message</th>
+              <th className="px-4 py-2 border-b text-left font-semibold">Status</th>
             </tr>
           </thead>
           <tbody>
-            {works.map((work) => (
-              <tr key={work._id} className="hover:bg-gray-50 text-gray-700">
+            {filteredWorks.map((work) => (
+              <tr key={work._id} className="hover:bg-gray-50">
                 <td className="px-4 py-2 border-b">{work.name}</td>
                 <td className="px-4 py-2 border-b">
-                  <a  href={`http://localhost:5000/uploads/${work.pdf.split("/").pop()}`} target="_blank" rel="noopener noreferrer">
+                  <a
+                    href={`http://localhost:5000/uploads/${work.pdf.split("/").pop()}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-500 underline hover:text-blue-700"
+                  >
                     {work.pdf}
                   </a>
                 </td>
-                <td className="px-4 py-2 border-b">{new Date(work.createdAt).toLocaleDateString()}</td>
-                <td className="px-4 py-2 border-b">{new Date(work.deadline).toLocaleDateString()}</td>
+                <td className="px-4 py-2 border-b">
+                  {new Date(work.createdAt).toLocaleDateString()}
+                </td>
+                <td className="px-4 py-2 border-b">
+                  {new Date(work.deadline).toLocaleDateString()}
+                </td>
                 <td className="px-4 py-2 border-b">{work.message}</td>
-                <td className="px-4 py-2 border-b">{work.status}</td>
+                <td className={`px-4 py-2 border-b ${getStatusStyles(work.status)}`}>
+                  {work.status}
+                </td>
               </tr>
             ))}
           </tbody>

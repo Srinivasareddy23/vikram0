@@ -1,0 +1,327 @@
+%PDF-1.3
+%ºß¬à
+3 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 4 0 R
+>>
+endobj
+4 0 obj
+<<
+/Length 4188
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F1 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 813.5435433070865656 Td
+(Encapsulation in Python is achieved primarily through classes and the judicious use of access modifiers \(although Python doesn't have strict `private` or `protected` keywords like Java or C++\).  We indicate intended privacy through naming conventions.) Tj
+T* () Tj
+T* (Here are a few examples demonstrating encapsulation in Python:) Tj
+T* () Tj
+T* (**Example 1: Simple Encapsulation**) Tj
+T* () Tj
+T* (This example shows a basic class with attributes and methods.  We use a naming convention \(`_` prefix\) to suggest that attributes shouldn't be accessed directly from outside the class.) Tj
+T* () Tj
+T* (```python) Tj
+T* (class Dog:) Tj
+T* (    def __init__\(self, name, age\):) Tj
+T* (        self._name = name  # Protected attribute \(convention only\)) Tj
+T* (        self._age = age    # Protected attribute \(convention only\)) Tj
+T* () Tj
+T* (    def get_name\(self\):) Tj
+T* (        return self._name) Tj
+T* () Tj
+T* (    def get_age\(self\):) Tj
+T* (        return self._age) Tj
+T* () Tj
+T* (    def set_age\(self, new_age\):) Tj
+T* (        if new_age > 0:) Tj
+T* (            self._age = new_age) Tj
+T* (        else:) Tj
+T* (            print\("Age must be positive."\)) Tj
+T* () Tj
+T* (    def bark\(self\):) Tj
+T* (        print\("Woof!"\)) Tj
+T* () Tj
+T* (my_dog = Dog\("Buddy", 3\)) Tj
+T* (print\(my_dog.get_name\(\)\)  # Accessing name through getter method) Tj
+T* (print\(my_dog.get_age\(\)\)   # Accessing age through getter method) Tj
+T* (my_dog.set_age\(5\)         # Modifying age through setter method) Tj
+T* (print\(my_dog.get_age\(\)\)) Tj
+T* (my_dog.bark\(\)) Tj
+T* () Tj
+T* (#Trying to access directly \(although possible, it's discouraged\)) Tj
+T* (print\(my_dog._name\) #This works, but breaks encapsulation principle) Tj
+T* (my_dog._age = -1    # This also works but violates data integrity) Tj
+T* (print\(my_dog._age\)) Tj
+T* (```) Tj
+T* () Tj
+T* (**Example 2:  More Robust Encapsulation \(using properties\)**) Tj
+T* () Tj
+T* (Properties provide a cleaner and more Pythonic way to manage attribute access. They allow you to control how attributes are accessed and modified.) Tj
+T* () Tj
+T* (```python) Tj
+T* (class Rectangle:) Tj
+T* (    def __init__\(self, width, height\):) Tj
+T* (        self._width = width) Tj
+T* (        self._height = height) Tj
+T* () Tj
+T* (    @property) Tj
+T* (    def width\(self\):) Tj
+T* (        return self._width) Tj
+T* () Tj
+T* (    @width.setter) Tj
+T* (    def width\(self, value\):) Tj
+T* (        if value > 0:) Tj
+T* (            self._width = value) Tj
+T* (        else:) Tj
+T* (            raise ValueError\("Width must be positive."\)) Tj
+T* () Tj
+T* (    @property) Tj
+T* (    def height\(self\):) Tj
+T* (        return self._height) Tj
+T* () Tj
+T* (    @height.setter) Tj
+T* (    def height\(self, value\):) Tj
+T* (        if value > 0:) Tj
+T* (            self._height = value) Tj
+T* (        else:) Tj
+T* (            raise ValueError\("Height must be positive."\)) Tj
+T* () Tj
+T* (    @property) Tj
+T* (    def area\(self\):) Tj
+T* (        return self._width * self._height) Tj
+T* () Tj
+T* (my_rectangle = Rectangle\(5, 10\)) Tj
+T* (print\(my_rectangle.width\)  # Accessing width using the property) Tj
+T* (my_rectangle.width = 7       # Setting width using the property) Tj
+T* (print\(my_rectangle.area\)    # Accessing area, which calculates it internally.) Tj
+T* (#my_rectangle.width = -2   # This will raise a ValueError) Tj
+T* () Tj
+T* (```) Tj
+T* () Tj
+T* (In both examples, encapsulation protects the internal state of the object.  The methods provide controlled access to the attributes, ensuring data integrity and preventing unintended modifications.  The underscore convention signals the intention of restricted access, even though it's not strictly enforced by the Python interpreter.  Using properties \(Example 2\) is generally preferred for better code readability and maintainability.  Name mangling \(`__` prefix\) can be used for stronger encapsulation, but it should be used sparingly as it adds complexity.  It's not usually necessary for most applications.) Tj
+T* () Tj
+ET
+endstream
+endobj
+1 0 obj
+<</Type /Pages
+/Kids [3 0 R ]
+/Count 1
+>>
+endobj
+5 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+6 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+7 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-Oblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+8 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-BoldOblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+9 0 obj
+<<
+/Type /Font
+/BaseFont /Courier
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+10 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+11 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-Oblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+12 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-BoldOblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+13 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Roman
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+14 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+15 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Italic
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+16 0 obj
+<<
+/Type /Font
+/BaseFont /Times-BoldItalic
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+17 0 obj
+<<
+/Type /Font
+/BaseFont /ZapfDingbats
+/Subtype /Type1
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+18 0 obj
+<<
+/Type /Font
+/BaseFont /Symbol
+/Subtype /Type1
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+2 0 obj
+<<
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+/Font <<
+/F1 5 0 R
+/F2 6 0 R
+/F3 7 0 R
+/F4 8 0 R
+/F5 9 0 R
+/F6 10 0 R
+/F7 11 0 R
+/F8 12 0 R
+/F9 13 0 R
+/F10 14 0 R
+/F11 15 0 R
+/F12 16 0 R
+/F13 17 0 R
+/F14 18 0 R
+>>
+/XObject <<
+>>
+>>
+endobj
+19 0 obj
+<<
+/Producer (jsPDF 2.5.2)
+/CreationDate (D:20241202163125+05'30')
+>>
+endobj
+20 0 obj
+<<
+/Type /Catalog
+/Pages 1 0 R
+/OpenAction [3 0 R /FitH null]
+/PageLayout /OneColumn
+>>
+endobj
+xref
+0 21
+0000000000 65535 f 
+0000004392 00000 n 
+0000006209 00000 n 
+0000000015 00000 n 
+0000000152 00000 n 
+0000004449 00000 n 
+0000004574 00000 n 
+0000004704 00000 n 
+0000004837 00000 n 
+0000004974 00000 n 
+0000005097 00000 n 
+0000005226 00000 n 
+0000005358 00000 n 
+0000005494 00000 n 
+0000005622 00000 n 
+0000005749 00000 n 
+0000005878 00000 n 
+0000006011 00000 n 
+0000006113 00000 n 
+0000006457 00000 n 
+0000006543 00000 n 
+trailer
+<<
+/Size 21
+/Root 20 0 R
+/Info 19 0 R
+/ID [ <E565AB0CB7A0DF85CD9CEB93520086A8> <E565AB0CB7A0DF85CD9CEB93520086A8> ]
+>>
+startxref
+6647
+%%EOF

@@ -16,9 +16,7 @@ export default function RootLayout({
   return (
         <ReduxProvider>
           <div className="flex h-screen">
-            {/* Sidebar */}
             <ManagerSidebar />
-            {/* Main Section */}
             <div className="flex flex-col flex-1">
               <ManagerHeader />
               <main className="flex-1 overflow-auto p-4 mt-12">{children}</main>

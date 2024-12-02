@@ -8,6 +8,12 @@ import getManagerRoute from "./src/routes/manager/getmanagerRoute.js"
 import getAllEmployeesRoute from "./src/routes/employee/getallEmployeeRoute.js"
 import registerEmployeeRoute from "./src/routes/employee/registerEmployee.js"
 import workRoute from "./src/routes/work/workRoute.js"
+import teamleadLoginRoute from './src/routes/auth/loginTeamleadRoute.js'
+import teamleadLogoutRoute from './src/routes/auth/logoutTeamleadRoute.js'
+import getTeamleadRoute from './src/routes/employee/getEmployeeRoute.js'
+import EmployeeLoginRoute from './src/routes/auth/loginEmployeeRoute.js'
+import EmployeelogoutController from './src/controllers/employees/logoutController.js';
+import geminiApiRoute from './src/routes/gemini/geminiaiRoute.js'
 import cookieParser from "cookie-parser";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -41,15 +47,27 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use('/api/auth', loginRoute);
 
-app.use('/api/auth',logoutRoute)
+app.use('/api/auth',logoutRoute);
+
+app.use('/api/auth',teamleadLogoutRoute);
+
+app.use('/api/auth',teamleadLoginRoute);
+
+app.use('/api/auth',EmployeeLoginRoute);
+
+app.use('/api/auth',EmployeelogoutController);
 
 app.use('/api',getManagerRoute);
+
+app.use('/api',getTeamleadRoute);
 
 app.use('/api',getAllEmployeesRoute);
 
 app.use('/api',registerEmployeeRoute);
 
 app.use('/api',workRoute);
+
+app.use('/api',geminiApiRoute);
 
 
 

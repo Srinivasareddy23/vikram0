@@ -50,7 +50,6 @@ const ManagerProfile = () => {
     <div className="max-w-4xl mx-auto p-8">
       <h2 className="text-2xl font-semibold text-center bg-blue-400 text-white p-2 mb-8">Manager Profile</h2>
       <form className="space-y-8">
-        {/* Input Group */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label
@@ -92,7 +91,6 @@ const ManagerProfile = () => {
           </div>
         </div>
 
-        {/* Another Input Group */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label

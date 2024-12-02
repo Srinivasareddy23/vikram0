@@ -53,7 +53,12 @@ const employeeSchema = new mongoose.Schema(
       type: String,
       required: true,
       trim: true,
-    }
+    },
+    mobilenumber: {
+      type: String,
+      default: "9988998899",
+      match: /^[6-9]\d{9}$/,
+    },
   },
   {
     timestamps: true,

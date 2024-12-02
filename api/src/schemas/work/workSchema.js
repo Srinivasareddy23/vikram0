@@ -26,7 +26,7 @@ const workSchema = new mongoose.Schema(
     },
     status: {
       type: String,
-      enum: ['assigned', 'started', 'in progress', 'done'],
+      enum: ['assigned', 'ongoing', 'completed'],
       default: 'assigned',
     }
   },

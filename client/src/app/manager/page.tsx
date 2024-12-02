@@ -36,10 +36,10 @@ export default function ManagerLogin() {
       const response = await fetch("http://localhost:5000/api/auth/login", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json", // Content type for JSON payload
+          "Content-Type": "application/json", 
         },
-        body: JSON.stringify(formData), // Send the form data as a JSON string
-        credentials: 'include', // Ensure that cookies (including the JWT token) are included with the request
+        body: JSON.stringify(formData),
+        credentials: 'include',
       });
       
 
@@ -102,7 +102,7 @@ export default function ManagerLogin() {
                 type="email"
                 id="email"
                 name="email"
-                className="w-full mt-1 p-3 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none transition duration-200 shadow-sm"
+                className="w-full mt-1 p-3 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none transition duration-200 shadow-sm text-black"
                 placeholder="abc@gmail.com"
                 value={formData.email}
                 onChange={handleInputChange}
@@ -117,7 +117,7 @@ export default function ManagerLogin() {
                 type="password"
                 id="password"
                 name="password"
-                className="w-full mt-1 p-3 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none transition duration-200 shadow-sm"
+                className="w-full mt-1 p-3 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none transition duration-200 shadow-sm text-black"
                 placeholder="******"
                 value={formData.password}
                 onChange={handleInputChange}

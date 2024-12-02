@@ -54,7 +54,6 @@ const AssignWork: React.FC = () => {
       const formData = new FormData();
       formData.append("file", file);
 
-      // Send the selected team member's name and ID
       formData.append("name", selectedTeam.firstname);
       formData.append("selectedTeam", JSON.stringify([selectedTeam._id])); // Pass as array with one item
       formData.append("deadline", deadline);

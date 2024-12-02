@@ -2,6 +2,8 @@ import { configureStore } from '@reduxjs/toolkit';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'; // Default storage for web
 import managerReducer from '../features/managerSlice';
+import employeeReducer from '../features/employeeSlice'
+import teamleadReducer from '../features/teamleadSlice'
 import { combineReducers } from 'redux';
 
 // Create a persist configuration
@@ -12,7 +14,9 @@ const persistConfig = {
 
 // Combine reducers
 const rootReducer = combineReducers({
-  manager: managerReducer, // Change 'counter' to 'manager' here
+  manager: managerReducer, 
+  teamlead : teamleadReducer,
+  employee : employeeReducer
 });
 
 // Wrap your combined reducer with persistReducer

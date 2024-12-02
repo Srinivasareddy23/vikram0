@@ -13,7 +13,6 @@ const ManagerSidebar : React.FC = () => {
 
   const menuItems = [
     { name: "Profile", icon: <FaUser />, route: "/manager/profile" },
-    { name: "Clients", icon: <FaUsers />, route: "/manager/dashboard" },
     { name: "Employees", icon: <FaTasks />, route: "/manager/employees" },
     { name: "Works", icon: <FaChartLine />, route: "/manager/work" },
   ];
