@@ -78,49 +78,57 @@ const ManagerDashboard = () => {
       </div>
 
       <div className="mt-8 overflow-x-auto">
-        <p className="text-xl text-center mb-4 text-white bg-blue-500 p-2 rounded-md shadow-md">
-          Work List
-        </p>
-        <table className="min-w-full table-auto border-collapse bg-white shadow-md text-gray-800">
-          <thead>
-            <tr className="bg-gray-200">
-              <th className="px-4 py-2 border-b text-left font-semibold">Name</th>
-              <th className="px-4 py-2 border-b text-left font-semibold">PDF</th>
-              <th className="px-4 py-2 border-b text-left font-semibold">Start Date</th>
-              <th className="px-4 py-2 border-b text-left font-semibold">Deadline</th>
-              <th className="px-4 py-2 border-b text-left font-semibold">Message</th>
-              <th className="px-4 py-2 border-b text-left font-semibold">Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filteredWorks.map((work) => (
-              <tr key={work._id} className="hover:bg-gray-50">
-                <td className="px-4 py-2 border-b">{work.name}</td>
-                <td className="px-4 py-2 border-b">
-                  <a
-                    href={`http://localhost:5000/uploads/${work.pdf.split("/").pop()}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-500 underline hover:text-blue-700"
-                  >
-                    {work.pdf}
-                  </a>
-                </td>
-                <td className="px-4 py-2 border-b">
-                  {new Date(work.createdAt).toLocaleDateString()}
-                </td>
-                <td className="px-4 py-2 border-b">
-                  {new Date(work.deadline).toLocaleDateString()}
-                </td>
-                <td className="px-4 py-2 border-b">{work.message}</td>
-                <td className={`px-4 py-2 border-b ${getStatusStyles(work.status)}`}>
-                  {work.status}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+  <p className="text-2xl text-center mb-6 text-white bg-gradient-to-r from-blue-400 to-blue-600 p-3 rounded-lg shadow-lg">
+    Work List
+  </p>
+  <table className="min-w-full table-auto border-collapse bg-white shadow-lg rounded-lg text-gray-800">
+    <thead>
+      <tr className="bg-gray-400 text-white">
+        <th className="px-6 py-4 text-left font-semibold uppercase">Name</th>
+        <th className="px-6 py-4 text-left font-semibold uppercase">Work</th>
+        <th className="px-6 py-4 text-left font-semibold uppercase">Start Date</th>
+        <th className="px-6 py-4 text-left font-semibold uppercase">Deadline</th>
+        <th className="px-6 py-4 text-left font-semibold uppercase">Message</th>
+        <th className="px-6 py-4 text-left font-semibold uppercase">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {filteredWorks.map((work) => (
+        <tr key={work._id} className="hover:bg-blue-50 transition-all">
+          <td className="px-6 py-4 border-b">{work.name}</td>
+          <td className="px-6 py-4 border-b">
+            <a
+              href={`http://localhost:5000/uploads/${work.pdf.split("/").pop()}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-500 underline hover:text-blue-700"
+            >
+              View PDF
+            </a>
+          </td>
+          <td className="px-6 py-4 border-b">
+            {new Date(work.createdAt).toLocaleDateString()}
+          </td>
+          <td className="px-6 py-4 border-b">
+            {new Date(work.deadline).toLocaleDateString()}
+          </td>
+          <td className="px-6 py-4 border-b">
+            <span
+              className="inline-block max-w-xs truncate"
+              title={work.message}
+            >
+              {work.message}
+            </span>
+          </td>
+          <td className={`px-6 py-4 border-b font-medium ${getStatusStyles(work.status)}`}>
+            {work.status}
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
     </div>
   );
 };

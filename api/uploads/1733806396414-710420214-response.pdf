@@ -1,0 +1,319 @@
+%PDF-1.3
+%ºß¬à
+3 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 4 0 R
+>>
+endobj
+4 0 obj
+<<
+/Length 3204
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F1 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 813.5435433070865656 Td
+(Several versions of Python code to check for Armstrong numbers are provided below, each with slightly different features and levels of sophistication:) Tj
+T* () Tj
+T* (**Version 1: Basic Function**) Tj
+T* () Tj
+T* (This version is straightforward and easy to understand.  It works for any number of digits.) Tj
+T* () Tj
+T* (```python) Tj
+T* (def is_armstrong\(num\):) Tj
+T* (  """Checks if a number is an Armstrong number.""") Tj
+T* (  num_str = str\(num\)) Tj
+T* (  num_digits = len\(num_str\)) Tj
+T* (  sum_of_powers = sum\(int\(digit\) ** num_digits for digit in num_str\)) Tj
+T* (  return sum_of_powers == num) Tj
+T* () Tj
+T* (# Example usage) Tj
+T* (number = 153) Tj
+T* (if is_armstrong\(number\):) Tj
+T* (  print\(f"{number} is an Armstrong number"\)) Tj
+T* (else:) Tj
+T* (  print\(f"{number} is not an Armstrong number"\)) Tj
+T* () Tj
+T* (number = 370) Tj
+T* (if is_armstrong\(number\):) Tj
+T* (  print\(f"{number} is an Armstrong number"\)) Tj
+T* (else:) Tj
+T* (  print\(f"{number} is not an Armstrong number"\)) Tj
+T* () Tj
+T* (number = 1634) Tj
+T* (if is_armstrong\(number\):) Tj
+T* (  print\(f"{number} is an Armstrong number"\)) Tj
+T* (else:) Tj
+T* (  print\(f"{number} is not an Armstrong number"\)) Tj
+T* () Tj
+T* (```) Tj
+T* () Tj
+T* (**Version 2:  Handling Non-Integer Input**) Tj
+T* () Tj
+T* (This version adds error handling for non-integer input.) Tj
+T* () Tj
+T* (```python) Tj
+T* (def is_armstrong\(num\):) Tj
+T* (  """Checks if a number is an Armstrong number. Handles non-integer input.""") Tj
+T* (  try:) Tj
+T* (    num = int\(num\)  # Convert to integer, raises ValueError if not possible) Tj
+T* (    num_str = str\(num\)) Tj
+T* (    num_digits = len\(num_str\)) Tj
+T* (    sum_of_powers = sum\(int\(digit\) ** num_digits for digit in num_str\)) Tj
+T* (    return sum_of_powers == num) Tj
+T* (  except ValueError:) Tj
+T* (    return False  # Return False if input is not an integer) Tj
+T* () Tj
+T* () Tj
+T* (#Example Usage) Tj
+T* (print\(is_armstrong\(153\)\)  # True) Tj
+T* (print\(is_armstrong\("abc"\)\) # False) Tj
+T* (```) Tj
+T* () Tj
+T* (**Version 3:  More Concise with `map`**) Tj
+T* () Tj
+T* (This version uses the `map` function for a slightly more compact solution.) Tj
+T* () Tj
+T* (```python) Tj
+T* (def is_armstrong\(num\):) Tj
+T* (    try:) Tj
+T* (        num_str = str\(num\)) Tj
+T* (        num_digits = len\(num_str\)) Tj
+T* (        sum_of_powers = sum\(map\(lambda x: int\(x\) ** num_digits, num_str\)\)) Tj
+T* (        return sum_of_powers == int\(num\)) Tj
+T* (    except ValueError:) Tj
+T* (        return False) Tj
+T* () Tj
+T* (print\(is_armstrong\(153\)\) # True) Tj
+T* (print\(is_armstrong\(371\)\) #True) Tj
+T* (print\(is_armstrong\("153"\)\) #True) Tj
+T* (print\(is_armstrong\("abc"\)\) #False) Tj
+T* () Tj
+T* (```) Tj
+T* () Tj
+T* (Remember that Armstrong numbers become increasingly rare as the number of digits increases.  These functions will work correctly for numbers of any size \(within the limits of Python's integer representation\).  However,  for extremely large numbers, the computation time might become noticeable.) Tj
+T* () Tj
+ET
+endstream
+endobj
+1 0 obj
+<</Type /Pages
+/Kids [3 0 R ]
+/Count 1
+>>
+endobj
+5 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+6 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+7 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-Oblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+8 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-BoldOblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+9 0 obj
+<<
+/Type /Font
+/BaseFont /Courier
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+10 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+11 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-Oblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+12 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-BoldOblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+13 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Roman
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+14 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+15 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Italic
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+16 0 obj
+<<
+/Type /Font
+/BaseFont /Times-BoldItalic
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+17 0 obj
+<<
+/Type /Font
+/BaseFont /ZapfDingbats
+/Subtype /Type1
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+18 0 obj
+<<
+/Type /Font
+/BaseFont /Symbol
+/Subtype /Type1
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+2 0 obj
+<<
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+/Font <<
+/F1 5 0 R
+/F2 6 0 R
+/F3 7 0 R
+/F4 8 0 R
+/F5 9 0 R
+/F6 10 0 R
+/F7 11 0 R
+/F8 12 0 R
+/F9 13 0 R
+/F10 14 0 R
+/F11 15 0 R
+/F12 16 0 R
+/F13 17 0 R
+/F14 18 0 R
+>>
+/XObject <<
+>>
+>>
+endobj
+19 0 obj
+<<
+/Producer (jsPDF 2.5.2)
+/CreationDate (D:20241202162236+05'30')
+>>
+endobj
+20 0 obj
+<<
+/Type /Catalog
+/Pages 1 0 R
+/OpenAction [3 0 R /FitH null]
+/PageLayout /OneColumn
+>>
+endobj
+xref
+0 21
+0000000000 65535 f 
+0000003408 00000 n 
+0000005225 00000 n 
+0000000015 00000 n 
+0000000152 00000 n 
+0000003465 00000 n 
+0000003590 00000 n 
+0000003720 00000 n 
+0000003853 00000 n 
+0000003990 00000 n 
+0000004113 00000 n 
+0000004242 00000 n 
+0000004374 00000 n 
+0000004510 00000 n 
+0000004638 00000 n 
+0000004765 00000 n 
+0000004894 00000 n 
+0000005027 00000 n 
+0000005129 00000 n 
+0000005473 00000 n 
+0000005559 00000 n 
+trailer
+<<
+/Size 21
+/Root 20 0 R
+/Info 19 0 R
+/ID [ <6BD22930E8B1C1E6829BE0D60551BACD> <6BD22930E8B1C1E6829BE0D60551BACD> ]
+>>
+startxref
+5663
+%%EOF
